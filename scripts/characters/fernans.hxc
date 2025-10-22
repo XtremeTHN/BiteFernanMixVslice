@@ -1,0 +1,73 @@
+import funkin.graphics.FunkinSprite;
+import funkin.play.character.SparrowCharacter;
+
+class Fernan extends SparrowCharacter
+{
+	function new()
+	{
+		super("Fernan");
+	}
+
+    public override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false) {
+        if (animation == null) return;
+        if (name.indexOf("sing") != -1 || name != "idle") animation.stop();
+
+        animation.play(name, restart, reversed, 0);
+    }
+}
+
+class FernanAlpha extends SparrowCharacter {
+    function new() {
+        super("FernanAlpha");
+    }
+
+    public override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false) {
+        if (animation == null) return;
+        if (name.indexOf("sing") != -1 || name != "idle") animation.stop();
+
+        animation.play(name, restart, reversed, 0);
+    }
+}
+
+class FernanBebe extends SparrowCharacter {
+    function new() {
+        super("FernanBebe");
+    }
+
+    public override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false) {
+        if (animation == null) return;
+        if (name.indexOf("sing") != -1 || name != "idle") animation.stop();
+    
+        animation.play(name, restart, reversed, 0);
+
+        if (name == "waaa") {
+            animation.curAnim.frameRate = 60;
+        }
+    }
+}
+
+class FernanJumpeado extends SparrowCharacter {
+    function new() {
+        super("FernanJumpeado");
+    }
+
+    public override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false) {
+        if (animation == null) return;
+        if (name.indexOf("sing") != -1 || name != "idle") animation.stop();
+
+        animation.play(name, restart, reversed, 0);
+    }
+}
+
+class FernanRene extends SparrowCharacter {
+    function new() {
+        super("FernanRene");
+    }
+
+    public override function playAnimation(name:String, restart:Bool = false, ignoreOther:Bool = false, reversed:Bool = false) {
+        if (animation == null) return;
+        if (name.indexOf("sing") != -1 || name != "idle") animation.stop();
+
+        animation.play(name, restart, reversed, 0);
+    }
+}

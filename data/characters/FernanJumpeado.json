@@ -1,0 +1,85 @@
+{
+    "version": "1.0.0",
+    "name": "FernanJumpeado",
+    "assetPath": "characters/FernanJumpeado",
+    "singTime": 5.99999999999999,
+    "isPixel": false,
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "Fernan Idle0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "Fernan Left0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "Fernan Down0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "singUP",
+            "prefix": "Fernan Up0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "Fernan Right0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "empieza",
+            "prefix": "Fernan Empieza0",
+            "looped": true,
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "ohh",
+            "prefix": "Fernan Ohh0",
+            "looped": true,
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "no",
+            "prefix": "Fernan No0",
+            "looped": true,
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "NOO",
+            "prefix": "Fernan NOO0",
+            "looped": true,
+            "offsets": [
+                0,
+                0
+            ]
+        }
+    ]
+}

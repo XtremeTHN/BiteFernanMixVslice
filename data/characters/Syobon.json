@@ -1,0 +1,74 @@
+{
+    "version": "1.0.0",
+    "name": "Syobon",
+    "assetPath": "characters/Syobon",
+    "singTime": 8.99999999999998,
+    "isPixel": true,
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "Syobon Idle0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "Syobon Left0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "Syobon Down0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "singUP",
+            "prefix": "Syobon Up0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "Syobon Right0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "walk",
+            "prefix": "Syobon Walk0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "jump",
+            "prefix": "Syobon Jump0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "die",
+            "prefix": "Syobon Die0",
+            "looped": true,
+            "offsets": [
+                0,
+                0
+            ]
+        }
+    ]
+}

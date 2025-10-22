@@ -1,0 +1,102 @@
+{
+    "version": "1.0.0",
+    "name": "FernanBebe",
+    "assetPath": "characters/FernanBebe",
+    "singTime": 5.99999999999999,
+    "isPixel": false,
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "Fernan Idle0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "Fernan Left0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "Fernan Down0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "singUP",
+            "prefix": "Fernan Up0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "Fernan Right0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "UAHH",
+            "prefix": "Fernan UAHH0",
+            "looped": true,
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "beberepeat",
+            "prefix": "Fernan Beberepeat0",
+            "looped": true,
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "nopodemos",
+            "prefix": "Fernan Nopodemos0",
+            "looped": true,
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "sipodemos",
+            "prefix": "Fernan Sipodemos0",
+            "looped": true,
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "queno",
+            "prefix": "Fernan Queno0",
+            "looped": true,
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "waaa",
+            "prefix": "Fernan Waaa0",
+            "offsets": [
+                0,
+                0
+            ]
+        }
+    ]
+}

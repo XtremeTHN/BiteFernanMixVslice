@@ -1,0 +1,42 @@
+import flixel.FlxG;
+import funkin.modding.module.Module;
+import funkin.play.PlayState;
+import flixel.tweens.FlxTween;
+import flixel.tweens.FlxEase;
+import Math;
+
+class AngleFernanHandler extends Module {
+    public var enabled;
+    var fernan;
+    var angle_val = 0;
+	public function new() {
+		super("AngleFernanHandler");
+	}
+
+    function randInt(from:Int, to:Int):Int {
+        return from + Math.floor(((to - from + 1) * Math.random()));
+    }
+
+    public function setValue(val) {
+        angle_val = val;
+    }
+
+    public function setEnabled(enable) {
+        if (enable == false) {
+            if (fernan == null) return;
+            FlxTween.tween(fernan, {angle: 0}, 0.25, FlxEase.SineInOut);
+        }
+        enabled = enable;
+    }
+
+    public function onUpdate(event) {
+        if (angle_val == 0) return;
+        if (PlayState.instance == null) return;
+        fernan = PlayState.instance.currentStage.getDad();
+        
+        if (fernan == null) return;
+
+        var angleOfs = randInt(angle_val * -1, angle_val);
+        fernan.angle = angleOfs;
+    }
+}

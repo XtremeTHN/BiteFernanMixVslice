@@ -1,0 +1,160 @@
+{
+    "version": "1.0.0",
+    "name": "Fernan",
+    "assetPath": "characters/Fernan",
+    "singTime": 5.99999999999999,
+    "isPixel": false,
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "Fernan Idle0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "Fernan Left0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "Fernan Down0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "singUP",
+            "prefix": "Fernan Up0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "Fernan Right0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "idle-alt",
+            "looped": true,
+            "prefix": "Fernan Idle Alt0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "singLEFT-alt",
+            "prefix": "Fernan Left Alt0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "singDOWN-alt",
+            "prefix": "Fernan Down Alt0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "singUP-alt",
+            "prefix": "Fernan Up Alt0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "singRIGHT-alt",
+            "prefix": "Fernan Right Alt0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "QUE",
+            "looped": true,
+            "prefix": "Fernan QUE",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "AAHH",
+            "prefix": "Fernan AAHH",
+            "looped": true,
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "vamos",
+            "prefix": "Fernan Vamos0",
+            "looped": true,
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "goku1",
+            "prefix": "Fernan Goku1",
+            "looped": true,
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "goku2",
+            "prefix": "Fernan Goku2",
+            "looped": true,
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "cry1",
+            "prefix": "Fernan Cry1",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "cry2",
+            "prefix": "Fernan Cry2",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "cry3",
+            "prefix": "Fernan Cry3",
+            "looped": true,
+            "offsets": [
+                0,
+                0
+            ]
+        }
+    ]
+}

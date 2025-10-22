@@ -1,0 +1,118 @@
+import funkin.modding.module.Module;
+import funkin.modding.module.ModuleHandler;
+import funkin.modding.events.SongLoadScriptEvent;
+import funkin.play.PlayState;
+
+import funkin.play.character.CharacterDataParser;
+import funkin.play.character.CharacterType;
+import funkin.play.components.HealthIcon;
+
+class ChangeCharacterModule extends Module {
+
+    function new() {
+        super("ChangeCharacterModule");
+    }
+
+    private var currentCharacterData;
+    private var characterZIndexes = null;
+
+    public function changeChar(target, newchar) {
+        if (PlayState.instance == null || PlayState.instance.currentStage == null) return;
+		if (PlayState.instance.isMinimalMode) return;
+
+        var charData = CharacterDataParser.parseCharacterData(newchar);
+        CharacterDataParser.characterCache.h[CharacterDataParser.characterCache.h.length+1] = charData;
+
+		switch(target) {
+			case 'bf':
+                PlayState.instance.currentStage.getBoyfriend().destroy();
+				var boyfriend = CharacterDataParser.fetchCharacter(newchar);
+
+                if (boyfriend != null) {
+                    boyfriend.set_characterType(CharacterType.BF);
+                    boyfriend.initHealthIcon(false);
+                    PlayState.instance.currentStage.addCharacter(boyfriend, CharacterType.BF);
+                    PlayState.instance.currentStage.getBoyfriend().zIndex = characterZIndexes["bf"];
+                }
+
+                if (newchar == "Whoishe") {
+                    boyfriend.flipX = true;
+                }
+			case 'gf':
+				PlayState.instance.currentStage.getGirlfriend().destroy();
+				var girlfriend = CharacterDataParser.fetchCharacter(newchar);
+                if (girlfriend != null) {
+                    girlfriend.set_characterType(CharacterType.GF);
+                    PlayState.instance.currentStage.addCharacter(girlfriend, CharacterType.GF);
+                    PlayState.instance.currentStage.getGirlfriend().zIndex = characterZIndexes["gf"];
+                }
+			case 'dad':
+				var old_dad = PlayState.instance.currentStage.getDad();
+                var old_x = old_dad.x;
+                var old_y = old_dad.y;
+
+                old_dad.destroy();
+				var dad = CharacterDataParser.fetchCharacter(newchar);
+                if (dad != null) {
+                    dad.set_characterType(CharacterType.DAD);
+                    dad.initHealthIcon(true);
+                    PlayState.instance.currentStage.addCharacter(dad, CharacterType.DAD);
+                    var new_dad = PlayState.instance.currentStage.getDad();
+                    new_dad.zIndex = characterZIndexes["dad"];
+                    new_dad.x = old_x;
+                    new_dad.y = old_y;
+                }
+		}
+
+        PlayState.instance.currentSong.refreshCharacters();
+        PlayState.instance.currentStage.refresh();
+    }
+
+    public override function onCountdownStart(event) {
+        if (PlayState.instance == null || PlayState.instance.currentStage == null) return;
+		if (PlayState.instance.isMinimalMode) return;
+
+        characterZIndexes = ["bf" => PlayState.instance.currentStage.getBoyfriend().zIndex, "gf" => PlayState.instance.currentStage.getGirlfriend().zIndex, "dad" => PlayState.instance.currentStage.getDad().zIndex];
+
+        // trace("ZINDEXES: " + characterZIndexes);
+
+        super.onCountdownStart(event);
+
+        currentCharacterData = PlayState.instance.get_currentChart().characters;
+    }
+
+    override function onSongRetry(event) {
+        if (PlayState.instance == null || PlayState.instance.currentStage == null) return;
+		if (PlayState.instance.isMinimalMode) return;
+        super.onSongRetry(event);
+        
+        // GF reset
+
+        PlayState.instance.currentStage.getGirlfriend().destroy();
+		var girlfriend = CharacterDataParser.fetchCharacter(currentCharacterData.girlfriend);
+        if (girlfriend != null) {
+            girlfriend.set_characterType(CharacterType.GF);
+            PlayState.instance.currentStage.addCharacter(girlfriend, CharacterType.GF);
+        }
+
+        // BF reset
+
+        PlayState.instance.currentStage.getBoyfriend().destroy();
+		var boyfriend = CharacterDataParser.fetchCharacter(currentCharacterData.player);
+        if (boyfriend != null) {
+            boyfriend.set_characterType(CharacterType.BF);
+            boyfriend.initHealthIcon(false);
+            PlayState.instance.currentStage.addCharacter(boyfriend, CharacterType.BF);
+        }
+
+        // DAD reset
+
+        PlayState.instance.currentStage.getDad().destroy();
+		var dad = CharacterDataParser.fetchCharacter(currentCharacterData.opponent);
+        if (dad != null) {
+            dad.set_characterType(CharacterType.DAD);
+            dad.initHealthIcon(true);
+            PlayState.instance.currentStage.addCharacter(dad, CharacterType.DAD);
+        }
+    }
+}

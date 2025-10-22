@@ -1,0 +1,74 @@
+{
+    "version": "1.0.0",
+    "name": "CebollaConPelo",
+    "assetPath": "characters/CebollaConPelo",
+    "singTime": 8.99999999999998,
+    "isPixel": true,
+    "flipX": true,
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "cebolla Idle",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "cebolla Left",
+            "offsets": [
+                1,
+                0
+            ]
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "cebolla Down",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "singUP",
+            "prefix": "cebolla Up",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "cebolla Right",
+            "offsets": [
+                -1,
+                0
+            ]
+        },
+        {
+            "name": "firstDeath",
+            "prefix": "cebolla Idle",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "deathLoop",
+            "prefix": "cebolla Idle",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "deathConfirm",
+            "prefix": "cebolla Idle",
+            "offsets": [
+                0,
+                0
+            ]
+        }
+    ]
+}

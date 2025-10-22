@@ -1,0 +1,44 @@
+{
+    "version": "1.0.0",
+    "name": "FernanRene",
+    "assetPath": "characters/FernanRene",
+    "singTime": 5.99999999999999,
+    "isPixel": false,
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "Fernan Idle0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "huh",
+            "prefix": "Fernan Huh",
+            "looped": true,
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "nono",
+            "prefix": "Fernan Nono",
+            "looped": true,
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "jejnosab",
+            "prefix": "Fernan Jejnosab",
+            "looped": true,
+            "offsets": [
+                0,
+                0
+            ]
+        }
+    ]
+}

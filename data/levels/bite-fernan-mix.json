@@ -1,0 +1,9 @@
+{
+  "version": "1.0.0",
+  "name": "Bite Fernan Mix",
+  "titleAsset": "storymenu/titles/tutorial",
+  "props": [],
+  "visible": false,
+  "background": "#F9CF51",
+  "songs": ["bite-fernan-mix"]
+}

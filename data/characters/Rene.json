@@ -1,0 +1,59 @@
+{
+    "version": "1.0.0",
+    "name": "Rene",
+    "assetPath": "characters/Rene",
+    "singTime": 5.99999999999999,
+    "isPixel": true,
+    "scale": 0.4,
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "Rene Idle0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "Rene Left0",
+            "offsets": [
+                5,
+                0
+            ]
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "Rene Down0",
+            "offsets": [
+                -10,
+                -50
+            ]
+        },
+        {
+            "name": "singUP",
+            "prefix": "Rene Up0",
+            "offsets": [
+                -20,
+                30
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "Rene Right0",
+            "offsets": [
+                -50,
+                0
+            ]
+        },
+        {
+            "name": "die",
+            "prefix": "Rene Die0",
+            "looped": true,
+            "offsets": [
+                -42,
+                0
+            ]
+        }
+    ]
+}

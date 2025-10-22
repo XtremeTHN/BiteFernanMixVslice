@@ -1,0 +1,40 @@
+// from https://gamebanana.com/mods/614839
+import funkin.play.notes.notekind.NoteKind;
+import funkin.play.PlayState;
+import funkin.modding.events.HitNoteScriptEvent;
+import funkin.modding.events.HoldNoteScriptEvent;
+import funkin.modding.events.UpdateScriptEvent;
+
+class GfSingNote extends NoteKind
+{
+    private var singAnimations = ['singLEFT', 'singDOWN', 'singUP', 'singRIGHT'];
+
+    public function new()
+    {
+        super("gfsing", "Girlfriend Sing Note", "funkin", []);
+    }
+
+    function onNoteHit(event:HitNoteScriptEvent)
+    {
+        if (PlayState.instance == null) return;
+        if (event.note == null || event.note.noteData == null) return;
+
+        var gfChar = PlayState.instance.currentStage.getGirlfriend();
+        if (gfChar == null) return;
+
+        var dir = event.note.noteData.getDirection();
+        var anim:String = singAnimations[dir];
+        if (anim == null) return;
+
+		  	 if (event.note.noteData.kind == "gfsing")
+			{
+				event.cancelEvent();
+
+				PlayState.instance.playerStrumline.killNote(event.note);
+			
+				// Play GF animation on initial hit
+        		gfChar.playAnimation(anim, true);
+        		gfChar.holdTimer = 0;
+			}	
+    }
+}

@@ -1,0 +1,367 @@
+import flixel.tweens.FlxEase;
+import funkin.graphics.FunkinSprite;
+import flixel.tweens.FlxTween;
+import funkin.play.PlayState;
+import funkin.play.song.Song;
+import funkin.FunkinMemory;
+import flixel.FlxG;
+import flixel.FlxSprite;
+import funkin.Conductor;
+import funkin.Paths;
+import funkin.modding.module.ModuleHandler;
+
+
+class BiteSong extends Song {
+	var state;
+	var stage;
+    var introVideo;
+    public var bf;
+    public var gf;
+    public var fernan;
+    var currentlyRotating = false;
+    var printing_cursor = false;
+
+    public function new() {
+		super('bite-fernan-mix');
+	}
+
+    function playIntro() {
+        var video = ModuleHandler.getModule("PVE_VideoModule").scriptCall("createVideo", [
+            Paths.videos("GatoBros"),
+            {
+                videoType: 1,
+                disableControls: false,
+                hudFadeDuration: 1,
+                resync: true,
+                zIndex: 300,
+                mute: false,
+                timestamp: Conductor.instance.songPosition
+            }
+        ]);
+
+        stage.add(video);
+        stage.refresh();
+    }
+
+    // DaWaterMalone answer of https://gamebanana.com/questions/65230
+    function hideOpponentStrumlines() {
+        if (state == null) return;
+
+        var opponentStrumline = state.opponentStrumline;
+        for (arrow in opponentStrumline.members) {
+            arrow.visible = false;
+        }
+    }
+
+    function enableMiddleScroll() {
+        if (state == null) return;
+
+        var playerStrumline = state.playerStrumline;
+        if (playerStrumline != null) {
+            playerStrumline.x = FlxG.width / 2 - playerStrumline.width / 2;
+        }
+    }
+
+    function hideHud() {
+        state.healthBar.alpha = 0;
+		state.healthBarBG.alpha = 0;
+		state.iconP1.alpha = 0;
+		state.iconP2.alpha = 0;
+    }
+
+    public override function onSongStart(event) {
+        super.onSongStart(event);
+        playIntro();
+    }
+
+    function fernanGoAway() {
+        FlxTween.tween(fernan, {y: -750}, 1.15, { ease: FlxEase.quintOut });
+    }
+    function fernanGoFarAway() {
+        FlxTween.tween(fernan, {y: 500}, 4, { ease: FlxEase.quintOut });
+    }
+
+    function fernanComeback(duration) {
+        FlxTween.tween(fernan, {y: -490}, duration, { ease: FlxEase.quintOut });
+    }
+
+    function fernanRotate() {
+        if (currentlyRotating) FlxTween.angle(fernan, 0, 360, 0.1, { onComplete: fernanRotate });
+    }
+
+    function killSyobon() {
+        var tb1 = stage.getNamedProp("tb1");
+        var syobon = stage.getGirlfriend();
+        FlxTween.tween(tb1, {y: -213}, 0.1, { onComplete: function() {
+            syobon.playAnimation("die", true, true);
+
+        }});
+    }
+
+    function doSyobonDeathAnim(y_pos) {
+        var syobon = stage.getGirlfriend();
+        FlxTween.tween(syobon, {y: y_pos}, 0.25, {ease: FlxEase.sineOut, onComplete: function() {
+            FlxTween.tween(syobon, {y: 1200}, 1.6, {ease: FlxEase.cubeInOut});
+        }});
+    }
+
+    function fernanBebeComeback() {
+        fernan.x = 330;
+        fernan.y = -760;
+        FlxTween.tween(fernan, {y: -490}, 0.25);
+    }
+
+    function fernanStretch(stretch, duration) {
+        FlxTween.tween(fernan.scale, {x: stretch}, duration, {ease: FlxEase.sineOut});
+    }
+
+    function fernanUnstretch() {
+        fernan.scale.set(1,1);
+    }
+
+    function fernanBebePrepareChange() {
+        FlxTween.tween(fernan, {x: -585.5}, 0.13);
+    }
+
+    function reneStart() {
+        gf.alpha = 1;
+        gf.x = -240;
+        gf.y = -220;
+    }
+
+    function preparePlayerW4() {
+        stage.blackout(false);
+
+        bf.scale.set(3,3);
+        bf.x = 800;
+        bf.playAnimation("walk");
+        FlxTween.tween(bf, {x: 260}, 0.5, {onComplete: () -> {
+            bf.playAnimation("jump", true, true);
+        }});
+    }
+
+    function preparePlayerW2Rene() {
+        bf.x = 98.5;
+        bf.y = -166;
+    }
+
+    function fakinRotateRene() {
+        FlxTween.angle(gf, 0, -350, 0.5, { onComplete: () -> {
+            FlxTween.angle(gf, 0, -3600, 0.8, { onComplete: () -> {
+                gf.visible = false;
+                gf.color = 0xFFFFFF;
+            }});
+        } });
+    }
+
+    function fakinKillRene() {
+        FlxTween.tween(fernan, {x: -100}, 0.15, {onComplete: () -> {
+            gf.color = 0xFFFF0000;
+
+            FlxTween.tween(gf, {x: -550}, 0.2, {ease: FlxEase.elasticInOut, onComplete: () -> {
+                fakinRotateRene();
+            }});
+        }});
+    }
+
+    function onLv4() {
+        gf.alpha = 0;
+        bf.scale.set(1.8,1.8); // resets the bf scale
+        bf.x = 346.6; // positionates bf down the question blocks
+        bf.y = -17;
+    }
+
+    function prepareFernanRene() {
+        fernan.x = 800;
+        fernan.y = -260;
+    }
+
+    function positionFJumpeado() {
+        gf.x = -280;
+        gf.y = 46;
+        fernan.x = 330;
+        fernan.y = -490;
+    }
+
+    function fernanGokuCenter() {
+        FlxTween.tween(fernan, {x: -100, y: -260}, 1);
+    }
+
+    // i should be using events instead of this
+    // but i don't want to bloat the event dropdown
+    // so i'm sticking with this approach
+    function fernanScream(number) {
+        var mod = ModuleHandler.getModule("AngleFernanHandler");
+        switch (number) {
+            case 0:
+                FlxTween.tween(fernan, {x: -490, y: -390}, 0.2, {ease: FlxEase.cubeInOut});
+            case 1:
+                FlxTween.tween(fernan, {x: -390, y: -290}, 0.2,{ease: FlxEase.cubeInOut});
+            case 2:
+                mod.scriptCall("setValue", [20]);
+                FlxTween.tween(fernan, {x: -585.5, y: -490}, 1, {
+                    onComplete: () -> {
+                        mod.scriptCall("setEnabled", [false]);
+                        mod.scriptCall("setValue", [0]);
+                    }
+                });
+            case 3:
+                mod.scriptCall("setValue", [20]);
+            case 4:
+                mod.scriptCall("setValue", [0]);
+                FlxTween.tween(fernan, {angle: 4}, 0.3, {onComplete: () -> {
+                    FlxTween.tween(fernan, {x: -540}, 1);
+                    FlxTween.tween(fernan.scale, {x: 1.25}, 0.5);
+                }});
+            case 5:
+                FlxTween.tween(fernan, {y: 500, angle: 30}, 4, {ease: FlxEase.sineInOut});
+        }
+    }
+
+    function lastKillSyobon() {
+        var tb2 = stage.getNamedProp("tb2");
+        var gf = stage.getGirlfriend();
+        FlxTween.tween(tb2, {y: tb2.y + 200}, 0.5,{ease: FlxEase.sineInOut});
+        FlxTween.tween(gf, {y: gf.y + 200}, 0.5, {ease: FlxEase.sineInOut});
+    }
+
+    public override function onStepHit (event) {
+        super.onStepHit(event);
+        var curStep = event.step;
+
+        switch (curStep) { // i don't like this switch tbh
+            case 254:
+                stage.showScreen1Lives();
+            case 763:
+                fernanGoAway();
+            case 1173:
+                killSyobon();
+            case 1178:
+                doSyobonDeathAnim(-383);
+            case 1180:
+                fernanComeback(1.15);
+            case 1217:
+                currentlyRotating = true;
+                fernanRotate();
+                fernanGoFarAway();
+            case 1261:
+                currentlyRotating = false;
+            case 1279:
+                fernanBebeComeback();
+            case 1356:
+                fernan.playAnimation("UAHH");
+                fernanStretch(2.95, 0.2);
+            case 1360:
+                fernanUnstretch();
+            case 1419:
+                stage.explodeBaby();
+            case 1533:
+                fernanBebePrepareChange();
+            case 1538:
+                preparePlayerW4();
+            case 1551:
+                stage.changeLevel("lv4");
+                onLv4();
+            case 2064:
+                stage.blackout(true);
+                stage.changeLevel("lv2");
+            case 2092:
+                reneStart(); // positions gf
+                preparePlayerW2Rene(); // positions bf
+                prepareFernanRene();
+            case 2095:
+                stage.lightup(); // hides blackScreen
+            case 2615:
+                fakinKillRene();
+            case 2721:
+                stage.setScreen2TrollVisible(true);
+            case 2727:
+                // TODO: positionate all characters
+                positionFJumpeado();
+                stage.setScreen2TrollVisible(false);
+            case 2954:
+                stage.throwHammer();
+            case 2976:
+                doSyobonDeathAnim(-90);
+            case 2981:
+                fernanStretch(3.5, 0.2);
+            case 2984:
+                fernanUnstretch();
+                fernan.alpha = 0;
+                fernan.x = -585.5;
+                fernanGoAway();
+            case 3111:
+                fernan.alpha = 1;
+                fernanComeback(0.5);
+            case 3228:
+                fernanGokuCenter();
+            case 3241:
+                stage.flashScreen(1, true);
+            case 3255:
+                stage.changeLevel("lv1");
+            case 3784:
+                fernanScream(0);
+            case 3787:
+                FlxTween.tween(stage.whiteScreen, {alpha: 0.80}, 0.9);
+            case 3790:
+                fernanScream(1);
+            case 3799:
+                stage.changeLevel("lv2");
+            case 3800:
+                FlxTween.tween(stage.whiteScreen, {alpha: 0}, 1);
+                fernanScream(2);
+            case 3835:
+                fernanScream(3);
+            case 3841:
+                fernanScream(4);
+            case 3850:
+                fernanScream(5);
+            case 3892:
+                stage.blackScreen.zIndex = 201;
+                stage.refresh();
+                FlxTween.tween(stage.blackScreen, {alpha: 1}, 10, {ease: FlxEase.sineInOut});
+            case 4055:
+                stage.blackScreen.alpha = 0;
+                stage.changeLevel("lv2In");
+            case 4074:
+                lastKillSyobon();
+            case 4081:
+                fernan.alpha = 1;
+        }
+
+        // i do not understand my code anymore
+    }
+
+    public function refreshCharacters() {
+        fernan = stage.getDad();
+        bf = stage.getBoyfriend();
+        gf = stage.getGirlfriend();
+    }
+
+    function cacheAll() {
+        FunkinMemory.cacheTexture(Paths.image("characters/FernanAlpha"));
+        FunkinMemory.cacheTexture(Paths.image("characters/FernanBebe"));
+        FunkinMemory.cacheTexture(Paths.image("characters/FernanJumpeado"));
+        FunkinMemory.cacheTexture(Paths.image("characters/FernanRene"));
+        FunkinMemory.cacheTexture(Paths.image("characters/FernanWhoishe"));
+        FunkinMemory.cacheTexture(Paths.image("characters/Rene"));
+        FunkinMemory.cacheTexture(Paths.image("characters/Whoishe"));
+    }
+
+    public override function onSongLoaded(event) {
+        cacheAll();
+    }
+
+    public override function onCountdownStart(event) {
+        super.onCountdownStart(event);
+        state = PlayState.instance;
+        stage = state.currentStage;
+        refreshCharacters();
+
+        if (state == null) return;
+
+        hideOpponentStrumlines();
+        enableMiddleScroll();
+        hideHud();
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "version": "1.0.0",
+    "name": "CebollaConPeloDead",
+    "assetPath": "characters/CebollaConPeloDead",
+    "singTime": 8.99999999999998,
+    "isPixel": true,
+    "animations": [
+        {
+            "name": "firstDeath",
+            "prefix": "cebolla Idle",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "deathLoop",
+            "prefix": "cebolla Idle",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "deathConfirm",
+            "prefix": "cebolla Idle",
+            "offsets": [
+                0,
+                0
+            ]
+        }
+    ]
+}

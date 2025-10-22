@@ -1,0 +1,382 @@
+{
+	"version": "1.0.0",
+	"name": "ShobonNoAction",
+	"characters": {
+		"bf": {
+			"zIndex": 200,
+			"position": [
+				130,
+				-103
+			],
+			"scale": 1.8,
+			"cameraOffsets": [
+				0,
+				0
+			]
+		},
+		"dad": {
+			"zIndex": 300,
+			"position": [
+				-410,
+				-290
+			],
+			"cameraOffsets": [
+				460,
+				250
+			]
+		},
+		"gf": {
+			"zIndex": 99,
+			"scale": 1.8,
+			"position": [
+				20,
+				-158
+			],
+			"cameraOffsets": [
+				0,
+				0
+			]
+		}
+	},
+	"props": [
+		{
+			"name": "whiteScreen",
+			"assetPath": "#FFFFFF",
+			"position": [
+				-600,
+				-560
+			],
+			"scale": [
+				1350,
+				800
+			],
+			"alpha": 0,
+			"zIndex": 400
+		},
+		{
+			"name": "lvl1BopBg",
+			"assetPath": "#FFFFFF",
+			"position": [
+				-600,
+				-560
+			],
+			"scale": [
+				1350,
+				800
+			],
+			"alpha": 0,
+			"zIndex": 20
+		},
+		{
+			"name": "lv1Bg",
+			"assetPath": "#B3C3F6",
+			"position": [
+				-600,
+				-560
+			],
+			"scale": [
+				1350,
+				800
+			],
+			"alpha": 0
+		},
+		{
+			"name": "blackScreen",
+			"assetPath": "#000000",
+			"position": [
+				-600,
+				-560
+			],
+			"scale": [
+				1350,
+				800
+			],
+			"zIndex": 199,
+			"alpha": 0
+		},
+		{
+			"name": "screen1Lives",
+			"assetPath": "bite/screens/screen1",
+			"position": [
+				-30,
+				-180
+			],
+			"zIndex": 800,
+			"alpha": 0
+		},
+		{
+			"name": "blackYoutubeHudBg",
+			"assetPath": "bite/customYoutubeHud/black",
+			"position": [
+				0,
+				0
+			],
+			"zIndex": 900
+		},
+		{
+			"name": "youtubeHud",
+			"assetPath": "bite/customYoutubeHud/videohud",
+			"position": [
+				40,
+				20
+			],
+			"zIndex": 900
+		},
+		{
+			"name": "youtubeHudTitle",
+			"assetPath": "bite/customYoutubeHud/title",
+			"position": [
+				20,
+				20
+			],
+			"zIndex": 900
+		},
+		{
+			"name": "leftBg",
+			"assetPath": "#00FF00",
+			"alpha": 1,
+			"position": [
+				-590,
+				-500
+			],
+			"scale": [
+				150,
+				800
+			],
+			"zIndex": 100
+		},
+		{
+			"name": "rightBg",
+			"alpha": 1,
+			"assetPath": "#00FF00",
+			"position": [
+				550,
+				-500
+			],
+			"scale": [
+				150,
+				800
+			],
+			"zIndex": 100
+		},
+		{
+			"name": "martillolery",
+			"assetPath": "bite/worlds/martillasoenelano",
+			"position": [
+				135,
+				-160
+			],
+			"angle": 25,
+			"scale": [
+				1.9,
+				1.9
+			],
+			"isPixel": true,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 0,
+			"zIndex": 400
+		},
+		{
+			"name": "explosion",
+			"assetPath": "bite/screens/holasaul",
+			"position": [
+				300,
+				-500
+			],
+			"isPixel": true,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 0,
+			"zIndex": 600,
+			"animType": "sparrow",
+			"animations": [
+				{
+					"name": "explode",
+					"prefix": "holasaul"
+				}
+			]
+		},
+		{
+			"name": "lv1",
+			"assetPath": "bite/worlds/w1-1",
+			"position": [
+				-450,
+				-455
+			],
+			"scale": [
+				1.9,
+				1.9
+			],
+			"isPixel": true,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 0,
+			"zIndex": 40
+		},
+		{
+			"name": "lv2",
+			"assetPath": "bite/worlds/w1-2",
+			"position": [
+				-450,
+				-490
+			],
+			"scale": [
+				1.9,
+				1.9
+			],
+			"isPixel": true,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 1
+		},
+		{
+			"name": "lv2In",
+			"assetPath": "bite/worlds/w1-2In",
+			"position": [
+				-455,
+				-485
+			],
+			"scale": [
+				1.9,
+				1.9
+			],
+			"isPixel": true,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 0
+		},
+		{
+			"name": "lv4",
+			"assetPath": "bite/worlds/w1-4",
+			"position": [
+				-680,
+				-520
+			],
+			"scale": [
+				1.65,
+				1.65
+			],
+			"isPixel": true,
+			"alpha": 0
+		},
+		{
+			"name": "trollface",
+			"assetPath": "bite/screens/screen2",
+			"position": [
+				0,
+				-200
+			],
+			"scale": [
+				0.1,
+				0.1
+			],
+			"isPixel": true,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 0,
+			"zIndex": 401
+		},
+		{
+			"name": "tb1",
+			"assetPath": "bite/worlds/trollingblock1",
+			"position": [
+				-63.4,
+				-600
+			],
+			"scale": [
+				1.9,
+				1.9
+			],
+			"isPixel": true,
+			"scroll": [
+				1,
+				1
+			]
+		},
+		{
+			"name": "tb2",
+			"assetPath": "bite/worlds/trollingblock2",
+			"position": [
+				-345,
+				121
+			],
+			"isPixel": true,
+			"scroll": [
+				1,
+				1
+			],
+			"scale": [
+				1.93,
+				1.93
+			],
+			"alpha": 0
+		},
+		{
+			"name": "fb1",
+			"assetPath": "bite/worlds/fireballs",
+			"position": [
+				-715,
+				-372.5
+			],
+			"scale": [
+				1.4,
+				1.4
+			],
+			"isPixel": true,
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 0
+		},
+		{
+			"name": "fb2",
+			"assetPath": "bite/worlds/fireballs",
+			"position": [
+				-523.5,
+				-132.5
+			],
+			"isPixel": true,
+			"scale": [
+				1.4,
+				1.4
+			],
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 0
+		},
+		{
+			"name": "fb3",
+			"assetPath": "bite/worlds/fireballs",
+			"position": [
+				198,
+				-372.5
+			],
+			"isPixel": true,
+			"scale": [
+				1.4,
+				1.4
+			],
+			"scroll": [
+				1,
+				1
+			],
+			"alpha": 0
+		}
+	]
+}

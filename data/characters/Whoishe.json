@@ -1,0 +1,77 @@
+{
+    "version": "1.0.0",
+    "name": "Whoishe",
+    "assetPath": "characters/Whoishe",
+    "singTime": 8.99999999999998,
+    "isPixel": true,
+    "flipX": true,
+    "animations": [
+        {
+            "name": "idle",
+            "prefix": "whoishe Idle0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "singLEFT",
+            "prefix": "whoishe Right0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "singDOWN",
+            "prefix": "whoishe Down0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "singUP",
+            "prefix": "whoishe Up0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "singRIGHT",
+            "prefix": "whoishe Left0",
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "walk",
+            "prefix": "whoishe Walk0",
+            "looped": true,
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "jump",
+            "prefix": "whoishe Jump0",
+            "looped": true,
+            "offsets": [
+                0,
+                0
+            ]
+        },
+        {
+            "name": "die",
+            "prefix": "whoishe Die0",
+            "looped": true,
+            "offsets": [
+                0,
+                0
+            ]
+        }
+    ]
+}
